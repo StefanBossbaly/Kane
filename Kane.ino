@@ -1,5 +1,7 @@
+//Light threshold value
 #define THRESHOLD 200
 
+//Analog inputs
 int input0 = 0;
 int input1 = 0;
 int input2 = 0;
