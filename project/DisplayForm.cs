@@ -14,7 +14,6 @@ namespace project
 		private Thread readThread;
 		private SerialPort port;
 		private bool running;
-		private ResourceManager resources;
 		
 		public DisplayForm(String portName)
 		{
@@ -33,11 +32,8 @@ namespace project
 			running = true;
 			readThread.Start();
 			
-			//Init resources
-			resources = new ResourceManager ("resource", typeof(DisplayForm).Assembly);
-			
 			//Default Image to start with
-			pictureBox.Image = (Bitmap) resources.GetObject("floor1");
+			pictureBox.Image = Image.FromFile("C:\\Images\\floor1.jpg");
 		}
 		
 		public void Read()
@@ -55,10 +51,10 @@ namespace project
 							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
 							break;
 						case 2:
-							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
+							pictureBox.Image = Image.FromFile("C:\\Images\\floor3.jpg");
 							break;
 						case 3:
-							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
+							pictureBox.Image = Image.FromFile("C:\\Images\\floor4.jpg");
 							break;
 						case 4:
 							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
