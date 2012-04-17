@@ -69,6 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Images\depth_charge.jpg" />
+    <None Include="Images\evil_lair.png" />
+    <None Include="Images\floor1.jpg" />
+    <None Include="Images\floor2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DisplayForm.resx">
@@ -77,6 +81,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
