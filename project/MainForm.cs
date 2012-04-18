@@ -21,6 +21,8 @@ namespace project
 			//Populate the port in the list
 			string[] ports = SerialPort.GetPortNames();
 			
+			portsBox.Items.Add("None");
+			
 			foreach(string port in ports)
 			{
 				portsBox.Items.Add(port);

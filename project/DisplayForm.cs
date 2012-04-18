@@ -23,14 +23,17 @@ namespace project
 			InitializeComponent();
 			
 			//Init the port
-			port = new SerialPort(portName);
-			port.ReadTimeout = 100;
-			port.Open();
-			
-			//Start the read thread
-			readThread = new Thread(Read);
-			running = true;
-			readThread.Start();
+			if (!portName.Equals("None"))
+			{
+				port = new SerialPort(portName);
+				port.ReadTimeout = 100;
+				port.Open();
+				
+				//Start the read thread
+				readThread = new Thread(Read);
+				running = true;
+				readThread.Start();
+			}
 			
 			//Default Image to start with
 			pictureBox.Image = Image.FromFile("C:\\Images\\evil_lair.png");
@@ -77,9 +80,11 @@ namespace project
 		void DisplayFormFormClosing(object sender, FormClosingEventArgs e)
 		{
 			running = false;
-			if (! readThread.Join(1000))
+			if (readThread != null && !readThread.Join(1000))
 				readThread.Abort();
-    		port.Close(); 
+			
+			if (port != null)
+    			port.Close(); 
 		}
 	}
 }
