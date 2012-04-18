@@ -33,7 +33,7 @@ namespace project
 			readThread.Start();
 			
 			//Default Image to start with
-			pictureBox.Image = Image.FromFile("C:\\Images\\floor1.jpg");
+			pictureBox.Image = Image.FromFile("C:\\Images\\evil_lair.png");
 		}
 		
 		public void Read()
@@ -42,30 +42,30 @@ namespace project
 			{
 				try
 				{
-					switch (port.ReadByte())
+					int number = port.ReadByte();
+					switch (number)
 					{
-						case 0:
+						case 48:
+							pictureBox.Image = Image.FromFile("C:\\Images\\evil_lair.png");
+							break;
+						case 49:
 							pictureBox.Image = Image.FromFile("C:\\Images\\floor1.jpg");
 							break;
-						case 1:
+						case 50:
 							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
 							break;
-						case 2:
-							pictureBox.Image = Image.FromFile("C:\\Images\\floor3.jpg");
+						case 51:
+							pictureBox.Image = Image.FromFile("C:\\Images\\floor1.jpg");
 							break;
-						case 3:
-							pictureBox.Image = Image.FromFile("C:\\Images\\floor4.jpg");
+						case 52:
+							pictureBox.Image = Image.FromFile("C:\\Images\\depth_charge.jpg");
 							break;
-						case 4:
-							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
-							break;
-						case 5:
+						case 53:
 							pictureBox.Image = Image.FromFile("C:\\Images\\floor2.jpg");
 							break;
 						default:
 							break;
 					}
-						
 				}
 				catch (TimeoutException)
 				{
