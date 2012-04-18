@@ -26,19 +26,25 @@ void loop()
   input5 = analogRead(5);
   
   //Check to see if they are below THRESHOLD
-  if (input0 <= THRESHOLD)
-    Serial.print(0);
-  else if (input1 <= THRESHOLD)
-    Serial.print(1);
-  else if (input2 <= THRESHOLD)
-    Serial.print(2);
-  else if (input3 <= THRESHOLD)
-    Serial.print(3);
-  else if (input4 <= THRESHOLD)
-    Serial.print(4);
-  else if (input5 <= THRESHOLD)
-    Serial.print(5);
+  if (input0 <= THRESHOLD){
+    Serial.print((byte)0);
+  }
+  if (input1 <= THRESHOLD){
+    Serial.print((byte)1);
+  }
+  if (input2 <= THRESHOLD){
+    Serial.print((byte)2);
+  }
+  if (input3 <= THRESHOLD){
+    Serial.print((byte)3);
+  }
+  if (input4 <= THRESHOLD){
+    Serial.print((byte)4);
+  }
+  if (input5 <= THRESHOLD){
+    Serial.print((byte)5);
+  }
   
-  //Delay for 250ms
+  //Delay for 150ms
   delay(250);
 }
